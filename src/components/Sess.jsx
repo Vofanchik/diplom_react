@@ -1,9 +1,8 @@
-function Sess({data}) {
+function Sess({ sess }) {
 
     return (
-      <div className="Sess">
-        <h1>{data}</h1>
-          
+      <div className="movie-seances__time">
+        <a>{sess.start_at}</a>          
       </div>
     );
   }
