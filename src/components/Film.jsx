@@ -14,7 +14,7 @@ function Film({ item, sess }) {
 
   return (
 
-    <section className="movie">
+    <section  className="movie">
       <div className="movie__info">
         <div className="movie__poster">
           <img className="movie__poster-image" src="https://abh.ai/random/400/400" />
@@ -29,7 +29,7 @@ function Film({ item, sess }) {
 
 
       {Array.from(film_sess).map((el) => (
-        <div className="movie-seances__hall">
+        <div key={el[0]} className="movie-seances__hall">
           <h3 className="movie-seances__hall-title"> Зал {el[0]}</h3>
           <ul className="movie-seances__list">
             {el[1].map((session) => (

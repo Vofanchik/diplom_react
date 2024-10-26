@@ -1,6 +1,6 @@
 import Films from './components/Films';
 import './App.css'
-
+import Calendar from './components/Calendar'; 
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
@@ -30,6 +30,7 @@ function App() {
       <header className="page-header">
         <h1 className="page-header__title">Идём<span>в</span>кино</h1>
       </header>
+      <Calendar/>
       <Films films={ films } sess={ sess } />
     </div>
   )
