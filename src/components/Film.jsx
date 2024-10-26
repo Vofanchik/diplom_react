@@ -1,4 +1,3 @@
-import Sess from './Sess';
 function Film({ item, sess }) {
 
   let halls = []
@@ -12,11 +11,6 @@ function Film({ item, sess }) {
   halls.forEach(element => {
     film_sess.set(element, sess.filter(s => s.hall_id === element));
   });
-
-  console.log(Array.from(film_sess));
-  
-
-
 
   return (
 
@@ -39,7 +33,7 @@ function Film({ item, sess }) {
           <h3 className="movie-seances__hall-title"> Зал {el[0]}</h3>
           <ul className="movie-seances__list">
             {el[1].map((session) => (
-              <li  className="movie-seances__time-block">
+              <li key={session.id} className="movie-seances__time-block">
                 <button
                   className="movie-seances__time"
                   // onClick={() => handleClick(session.session_id)}

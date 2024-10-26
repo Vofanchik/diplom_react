@@ -1,4 +1,3 @@
-import Sess from './components/Sess'
 import Films from './components/Films';
 import './App.css'
 
