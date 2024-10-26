@@ -2,11 +2,21 @@ import Sess from './Sess';
 function Film({ item, sess }) {
 
   let halls = []
-  sess.filter((s)=>s.movie_id === item.id).forEach(element => {
-    halls.push(element.hall_id);    
+  sess.forEach(element => {
+    halls.push(element.hall_id);
   });
   halls = Array.from(new Set(halls))
+
+
+  let film_sess = new Map();
+  halls.forEach(element => {
+    film_sess.set(element, sess.filter(s => s.hall_id === element));
+  });
+
+  console.log(Array.from(film_sess));
   
+
+
 
   return (
 
@@ -22,22 +32,31 @@ function Film({ item, sess }) {
           </p>
         </div>
       </div>
-      <div className="movie-seances__hall">
-        <h3 className="movie-seances__hall-title">Зал 1</h3>
 
 
+      {Array.from(film_sess).map((el) => (
+        <div className="movie-seances__hall">
+          <h3 className="movie-seances__hall-title"> Зал {el[0]}</h3>
+          <ul className="movie-seances__list">
+            {el[1].map((session) => (
+              <li  className="movie-seances__time-block">
+                <button
+                  className="movie-seances__time"
+                  // onClick={() => handleClick(session.session_id)}
+                >
+                  {session.start_at.split(' ')[1]}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
 
-        {sess.filter((s) => s.movie_id === item.id).map((s) => {
-          return <Sess
-            sess={s}
-            key={s.id}
-          />
-        })}
-
-      </div>
     </section>
 
   );
 }
 
 export default Film;
+
+

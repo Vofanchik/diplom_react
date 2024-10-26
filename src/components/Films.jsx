@@ -7,7 +7,7 @@ function Films({ films, sess }) {
                 return <Film
                     item={item}
                     key={item.id}
-                    sess={sess}
+                    sess={sess.filter((s) => s.movie_id === item.id)}
                 />
             }) }
         </div>
