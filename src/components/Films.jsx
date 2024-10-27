@@ -1,6 +1,6 @@
 import Film from './Film';
 
-function Films({ films, sess }) {
+function Films({ films, sess, selectedDate }) {
     return (
         <div className="Films">
             { films.map((item) => {
@@ -8,6 +8,7 @@ function Films({ films, sess }) {
                     item={item}
                     key={item.id}
                     sess={sess.filter((s) => s.movie_id === item.id)}
+                    
                 />
             }) }
         </div>
