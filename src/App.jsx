@@ -13,7 +13,7 @@ function App() {
   useEffect(() => {
     axios.get(baseurl + 'movies')
       .then(response => {
-        setFilm(response.data.data);
+        setFilm(response.data);
       })
   }, []);
 
@@ -32,7 +32,10 @@ function App() {
       })
   }, []);
 
-
+  // sess.forEach((s)=>{
+  //   new Date(Date.parse(s.start_at)).getDate() == selectedDate
+  //   ?console.log(new Date(Date.parse(s.start_at)).getDate())
+  //   :{};})
 
   return (
     <div className="App">

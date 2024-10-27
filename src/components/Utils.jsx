@@ -24,7 +24,6 @@ function return_days_week() {
         i++;
     }
     weekDaysFromToday = weekDaysFromToday.map((key, index) => ([key, dates[index]]));
-    console.log(weekDaysFromToday);
 
     return weekDaysFromToday
 }
